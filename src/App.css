@@ -14,13 +14,12 @@ a {
 
 .nav {
   
-  background-color: #9F703A		;
-  padding: 3rem 0;
+  background-color: #222;
   opacity: 0.7;
 }
 
 h1 {
-  font-family: 'Courgette', cursive;
+  font-family: 'Bebas Neue', cursive;
   color: white;
   text-shadow: 0 0 1rem black;
 }
@@ -31,10 +30,14 @@ h1 {
 
 
 .header {
-  min-height: 50vh;
+  margin-top: 5rem;
+  min-height: 60vh;
   align-items: center;
-  background-image: url(/src/assests/cuttingboard.jpg);
+  background-image: url(/src/assests/mic.jpg);
   background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 
@@ -52,7 +55,7 @@ a:hover {
 }
 
 .parallax-bg {
-  background-image: url(/src/assests/grubspacer.jpg);
+  background-image: url(/src/assests/bg.jpeg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -60,11 +63,12 @@ a:hover {
 }
 
 .cards {
-  background-color: white;
-  background-image: url(/src/assests/cuttingboard.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+  background: linear-gradient(
+    35deg,
+    #444, 
+    #AAA
+  );
+  color: white;
 }
 
 .btn {

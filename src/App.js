@@ -6,169 +6,77 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 const initialState = [];
-const initialSearchValue = "";
+const initialSearchValue = "LaHavas";
 
 function Home(props) {
-  const [searchValue, setSearchValue] = useState(initialSearchValue);
-
   const [data, setData] = useState(initialState);
-  const baseUri = "https://spoonacular.com/recipeImages/";
+  const [searchValue, setSearchValue] = useState(initialSearchValue);
 
   const options = {
     method: "GET",
-    url:
-      "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search",
-    params: { query: searchValue },
+    url: "https://deezerdevs-deezer.p.rapidapi.com/search",
+    params: { q: searchValue },
     headers: {
-      "x-rapidapi-key": "b461d692bemshe80b4354ca6ba03p184f2ejsn08a3bb994638",
-      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+      "x-rapidapi-key": "cc687eba84mshcc7485fcf110baap193a15jsnfb1be463a74d",
+      "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
     },
   };
 
   useEffect(() => {
     axios
       .request(options)
-      .then((res) => {
-        console.log(
-          "This API Request was successful. Data Resolved",
-          res.data.results
-        );
-        setData(res.data.results);
+      .then(function (response) {
+        setData(response.data.data);
+        console.log(response.data.data);
       })
-      .catch((error) => {
-        console.log("This API request failed", error);
+      .catch(function (error) {
+        console.error(error);
       });
   }, [searchValue]);
 
+  const handleChange = (e) => {
+    e.preventDefault();
+    setSearchValue(e.target.value);
+  };
+
+  console.log(data);
   return (
     <div
-      className="d-flex justify-content-center flex-column"
+      className="d-flex justify-content-center flex-row flex-wrap"
       style={{ marginTop: "2rem", textAlign: "center" }}
     >
-      <div>
-        <h2 style={{ alignSelf: "center", marginTop: '3rem' }}>
-          Find A new Recipe in our Recipe Database
-        </h2>
+      <div className="container" >
+        <input type="text" value={searchValue} onChange={handleChange} style={{backgroundColor: 'black', color: 'white', textAlign: 'center'}}/>
       </div>
-      <div>
-        <label htmlFor="searchBar" style={{ color: "black" }}>
-          Search:{" "}
-        </label>
-        <input
-          name="searchBar"
-          type="text"
-          placeholder="Input any location value"
-          style={{
-            width: "20rem",
-            alignSelf: "center",
-            backgroundColor: "#444",
-            color: "lightblue",
-            textAlign: "center",
-            fontSize: "1.25rem",
-            margin: "3rem",
-          }}
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
-        />
-        <div className="d-flex flex-wrap justify-content-center">
-          {data.map((item, idx) => {
+      <div className="d-flex flex-row justify-content-center flex-wrap">
+        {data &&
+          data.map((item, idx) => {
             return (
               <div
-                className="d-flex cards flex-column container justify-content-center align-items-lg-center"
+                className="card cards text-light"
+                style={{ margin: "3rem 1rem" }}
                 key={idx}
-                style={{
-                  width: "30%",
-                  margin: "3rem 2rem",
-                  border: "2px solid black",
-                  textAlign: "center",
-                }}
               >
-                {" "}
-                <h3 style={{ padding: "3rem 0" }}>
-                  <a href={data[idx].sourceUrl} style={{ color: "white" }}>
-                    {data[idx].title}
-                  </a>
-                </h3>
-                <a href={data.[idx].sourceUrl}>
-                  <img
-                    src={baseUri + data[idx].image}
-                    alt={data[idx].title}
-                    style={{ maxWidth: "80%", minWidth: '80%', marginBottom: "3rem" }}
-                  />
-                 
-                </a>
-                <h5>Ready in: {data[idx].readyInMinutes} mins</h5>
-                <h5>Serves: {data[idx].servings}</h5>
+                <div className='d-flex justify-content-center flex-column' style={{backgroundColor: '#333'}}>
+                <img
+                  style={{ maxWidth: "5vw", alignSelf: 'center', marginTop: '1.5rem' }}
+                  src={data[idx].artist.picture_small}
+                  alt={data[idx].artist.name}
+                />
+                <h2 style={{ margin: "1rem 0" }}>{data[idx].artist.name}</h2>
+               </div>
+                <img
+                  src={data[idx].album.cover_big}
+                  alt={data[idx].album.title}
+                  style={{ margin: ".5rem .5rem" }}
+                />
+                <h4 style={{ margin: "1.5rem auto" }}>
+                  {data[idx].title_short}
+                </h4>
               </div>
             );
           })}
-        </div>
       </div>
-    </div>
-  );
-}
-function About(props) {
-  return (
-    <div
-      className="d-flex justify-content-center flex-column"
-      style={{ marginTop: "2rem", textAlign: "center" }}
-    >
-      <div>
-        <h1>Take Flight</h1>
-      </div>
-      <div>
-        <h3>strap in and prepare for take off... </h3>
-      </div>
-      <div>
-        <img
-          src="https://assets.codepen.io/4996277/airport.jpg"
-          className="sizer"
-          alt="another"
-          style={{ margin: "5rem" }}
-        />
-      </div>
-    </div>
-  );
-}
-function Location(props) {
-  return (
-    <div
-      className="d-flex justify-content-center flex-column"
-      style={{ marginTop: "2rem", textAlign: "center" }}
-    >
-      <div>
-        <h1 style={{ textAlign: "center" }}>Hawaii</h1>
-      </div>
-      <div>
-        <h3 style={{ textAlign: "center" }}>
-          Sit back and enjoy the ocean breeze
-        </h3>
-      </div>
-      <div>
-        <img
-          src="https://assets.codepen.io/4996277/pexels-quang-nguyen-vinh-4078031.jpg"
-          className="sizer"
-          alt="this"
-          style={{ margin: "5rem" }}
-        />
-      </div>
-    </div>
-  );
-}
-function JukeJoint(props) {
-  return (
-    <div
-      className="d-flex justify-content-center flex-column"
-      style={{ marginTop: "2rem", textAlign: "center" }}
-    >
-      <h1 style={{ textAlign: "center" }}>Mai Tai By the Beach</h1>
-      <h3 style={{ textAlign: "center" }}>Sip the flavors of the isles...</h3>
-      <img
-        src="https://assets.codepen.io/4996277/pexels-surawitch-atsaradorn-1368042.jpg"
-        className="sizer"
-        alt="one"
-        style={{ margin: "5rem auto" }}
-      />
     </div>
   );
 }
@@ -179,45 +87,17 @@ export default function App() {
       <BrowserRouter>
         <div className="container">
           <div className="d-flex bg-light header flex-column justify-content-center">
-            <h1 style={{fontSize: '20vh'}}>GrubSpace</h1>
-            <h5>Your quick & easy source of 5000+ recipes</h5>
+            <h1 style={{ fontSize: "20vh" }}>The Pulse</h1>
+            <h5>powered by deezer</h5>
           </div>
           <div className="d-flex flex-row-wrap justify-content-center nav">
-            <Link
-              to="/"
-              className=" btn btn-one"
-              style={{color: '#CCC' }}
-            >
-              Foodstuffs
-            </Link>
-            <Link
-              to="about"
-              className="btn btn-one"
-              style={{ color: "#CCC" }}
-            >
-              Libations
-            </Link>
-            <Link
-              to="location"
-              className="btn btn-one"
-              style={{ color: "#CCC" }}
-            >
-              Master Class
-            </Link>
-            <Link
-              to="jukejoint"
-              className="btn btn-one"
-              style={{ color: "#CCC" }}
-            >
-              TBD
+            <Link to="/" className=" btn btn-one" style={{ color: "#CCC" }}>
+              Artists
             </Link>
           </div>
         </div>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/Location" component={Location} />
-          <Route path="/JukeJoint" component={JukeJoint} />
         </Switch>
       </BrowserRouter>
       {/*Why would we want code outside of browser router */}
