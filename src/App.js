@@ -86,7 +86,7 @@ export default function App() {
     <div className=" parallax-bg jumbotron">
       <BrowserRouter>
         <div className="container">
-          <div className="d-flex bg-light header flex-column justify-content-center">
+          <div className="d-flex bg-light header flex-column justify-content-center" style={{textAlign: 'center'}}>
             <h1 style={{ fontSize: "20vh" }}>The Pulse</h1>
             <h5>powered by deezer</h5>
           </div>
