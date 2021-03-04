@@ -48,18 +48,18 @@ function Home(props) {
       <div className="container" >
         <input type="text" value={searchValue} onChange={handleChange} style={{backgroundColor: 'black', color: 'white', textAlign: 'center'}}/>
       </div>
-      <div className="d-flex flex-row justify-content-center flex-wrap">
+      <div className="d-flex flex-row justify-content-center container flex-wrap">
         {data &&
           data.map((item, idx) => {
             return (
               <div
                 className="card cards text-light"
-                style={{ margin: "3rem 1rem" }}
+                style={{ margin: "3rem 1rem", maxWidth: '100vw' }}
                 key={idx}
               >
                 <div className='d-flex justify-content-center flex-column' style={{backgroundColor: '#333'}}>
                 <img
-                  style={{ maxWidth: "5vw", alignSelf: 'center', marginTop: '1.5rem' }}
+                  style={{ maxWidth: "10vw", alignSelf: 'center', marginTop: '1.5rem' }}
                   src={data[idx].artist.picture_small}
                   alt={data[idx].artist.name}
                 />
@@ -68,7 +68,7 @@ function Home(props) {
                 <img
                   src={data[idx].album.cover_big}
                   alt={data[idx].album.title}
-                  style={{ margin: ".5rem .5rem" }}
+                  style={{ margin: ".5rem .5rem", maxWidth: '70vw'}}
                 />
                 <h4 style={{ margin: "1.5rem auto" }}>
                   {data[idx].title_short}
