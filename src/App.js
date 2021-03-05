@@ -5,20 +5,18 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 import Deezer from "./assests/deezer.png";
+import daily from './assests/daily.png'
 import playlistCover from "./assests/playlistCover.png";
 
 const initialState = [];
 const initialSearchValue = "kaytranada";
 const initialPlayList = "https://deezer.page.link/dp8EELoMmV5ZdLvA9";
 
-
-
-
-
 function Home(props) {
   const [data, setData] = useState(initialState);
   const [searchValue, setSearchValue] = useState(initialSearchValue);
   const pulsePlayList = initialPlayList;
+  const pulseDailyPlayList = "https://deezer.page.link/ZcdwvqUmGDgN7yDQA";
 
   const options = {
     method: "GET",
@@ -61,35 +59,14 @@ function Home(props) {
         <form onSubmit={handleClick}>
           {" "}
           <div
-            className="d-flex flex-column justify-content-center align-items-baseline "
+            className="d-flex flex-row flex-wrap justify-content-around align-items-baseline "
             style={{ backgroundColor: "#222", opacity: 0.8 }}
           >
             <div
               className="d-flex flex-column justify-content-center"
               style={{
                 alignSelf: "center",
-                marginTop: "2rem",
-                backgroundColor: "#444",
-                padding: "2rem 3rem",
-              }}
-            >
-              <h5>Find Your Favorite Artist, Album, or Song</h5>
-              <input
-                type="text"
-                value={searchValue.toUpperCase()}
-                onChange={handleChange}
-                style={{
-                  backgroundColor: "black",
-                  color: "white",
-                  textAlign: "center",
-                }}
-              />
-            </div>
-            <div
-              className="d-flex flex-column justify-content-center"
-              style={{
-                alignSelf: "center",
-                marginBottom: "3rem",
+                margin: "3rem 0",
                 backgroundColor: "#AAA",
                 padding: "2rem 2.75rem",
               }}
@@ -115,8 +92,57 @@ function Home(props) {
                 />{" "}
               </a>
             </div>
+            <div
+              className="d-flex flex-column justify-content-center"
+              style={{
+                alignSelf: "center",
+                margin: "3rem 0",
+                backgroundColor: "#AAA",
+                padding: "2rem 2.75rem",
+                minWidth: '40%'
+              }}
+            >
+              <label htmlFor="playlist_day" style={{ marginTop: "3rem" }}>
+                <h5 className="text-primary"> Pulse Playlist of The Day</h5>
+              </label>
+              <button
+                name="playlist_daily"
+                className="btn btn-dark"
+                style={{ alignSelf: "center", marginBottom: "2rem" }}
+              >
+                <a href={pulseDailyPlayList}>Take Me There</a>
+              </button>
+              <a href={pulsePlayList}>
+                <img
+                  src={daily}
+                  alt="playlist cover"
+                  style={{ maxWidth: "10rem" }}
+                />{" "}
+              </a>
+            </div>
           </div>{" "}
         </form>
+        <div
+          className="d-flex flex-column justify-content-center"
+          style={{
+            alignSelf: "center",
+            marginTop: "2rem",
+            backgroundColor: "#444",
+            padding: "2rem 3rem",
+          }}
+        >
+          <h5>Find Your Favorite Artist, Album, or Song</h5>
+          <input
+            type="text"
+            value={searchValue.toUpperCase()}
+            onChange={handleChange}
+            style={{
+              backgroundColor: "black",
+              color: "white",
+              textAlign: "center",
+            }}
+          />
+        </div>
       </div>
       <div
         className="d-flex flex-row justify-content-center container flex-wrap"
@@ -173,10 +199,6 @@ function Home(props) {
     </div>
   );
 }
-
-
-
-
 
 function Spotlight(props) {
   const initialSpotlightValue = "yaeji";
@@ -252,18 +274,29 @@ function Spotlight(props) {
             <img
               src={data.picture_big}
               alt={data.name}
-              style={{ boxShadow: "0 0 1.5rem black", maxWidth: '150%' }}
+              style={{ boxShadow: "0 0 1.5rem black", maxWidth: "150%" }}
             ></img>
           </a>{" "}
-          <div className="d-flex justify-content-center" style={{margin: '1rem 0'}}>
+          <div
+            className="d-flex justify-content-center"
+            style={{ margin: "1rem 0" }}
+          >
             <h6 style={{ color: "black" }}>
               Number of Albums: {data.nb_album}
             </h6>
-            <h6 style={{ color: "black", margin: '0 2vw' }}>Fans: {data.nb_fan}</h6>
+            <h6 style={{ color: "black", margin: "0 2vw" }}>
+              Fans: {data.nb_fan}
+            </h6>
           </div>
         </div>
         <div>
-          <p style={{ textAlign: "justify", padding: "3rem 3rem", fontSize: '1.2rem' }}>
+          <p
+            style={{
+              textAlign: "justify",
+              padding: "3rem 3rem",
+              fontSize: "1.2rem",
+            }}
+          >
             Kathy Yaeji Lee was born August 6, 1993 in Flushing, Queens as a
             single child in a Korean family. Growing up, Yaeji moved from New
             York to Atlanta when she was 5, and then to South Korea in the third
@@ -318,7 +351,7 @@ function Spotlight(props) {
         <a
           className="btn btn-dark"
           href={data.link}
-          style={{ textDecoration: "none", marginBottom: '3rem' }}
+          style={{ textDecoration: "none", marginBottom: "3rem" }}
         >
           <h5>Listen to {data.name} on Deezer</h5>
         </a>
@@ -326,10 +359,6 @@ function Spotlight(props) {
     </div>
   );
 }
-
-
-
-
 
 export default function App() {
   return (
