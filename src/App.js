@@ -9,7 +9,7 @@ import daily from "./assests/daily.png";
 import playlistCover from "./assests/playlistCover.png";
 
 const initialState = [];
-const initialSearchValue = "kaytranada";
+const initialSearchValue = "";
 const initialPlayList = "https://deezer.page.link/dp8EELoMmV5ZdLvA9";
 
 function Home(props) {
@@ -46,6 +46,7 @@ function Home(props) {
   };
 
   const handleChange = (e) => {
+    e.preventDefault()
     setSearchValue(e.target.value);
   };
 
@@ -217,9 +218,9 @@ function Home(props) {
                   </h4>
                 </a>
                 <audio controls preload="none" style={{width: '20rem', alignSelf: 'center'}}>
-                <source src={data[idx].preview} type="audio/mpeg" />
+                <source src={data && data[idx].preview} type="audio/mpeg" />
               </audio><br />
-              <a href={data[idx].link} title="mp3 player" style={{textAlign: 'right', display: "block"}}>{data[idx].title_short}</a> 
+             
               </div>
             );
           })}
