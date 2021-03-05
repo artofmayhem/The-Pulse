@@ -69,6 +69,7 @@ function Home(props) {
                 margin: "3rem 0",
                 backgroundColor: "#AAA",
                 padding: "2rem 2.75rem",
+                minWidth: '40%'
               }}
             >
               <label htmlFor="playlist" style={{ marginTop: "3rem" }}>
