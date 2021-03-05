@@ -5,7 +5,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 import Deezer from "./assests/deezer.png";
-import daily from './assests/daily.png'
+import daily from "./assests/daily.png";
 import playlistCover from "./assests/playlistCover.png";
 
 const initialState = [];
@@ -69,11 +69,11 @@ function Home(props) {
                 margin: "3rem 0",
                 backgroundColor: "#AAA",
                 padding: "2rem 2.75rem",
-                minWidth: '40%'
+                minWidth: "40%",
               }}
             >
               <label htmlFor="playlist" style={{ marginTop: "3rem" }}>
-                <h5 className="text-primary">
+                <h5 className="text-light">
                   {" "}
                   Check out Our Pulse Playlist of The Week
                 </h5>
@@ -89,7 +89,11 @@ function Home(props) {
                 <img
                   src={playlistCover}
                   alt="playlist cover"
-                  style={{ maxWidth: "10rem" }}
+                  style={{
+                    maxWidth: "10rem",
+                    borderRadius: "0.8rem",
+                    boxShadow: "0 0 1rem #222",
+                  }}
                 />{" "}
               </a>
             </div>
@@ -100,11 +104,11 @@ function Home(props) {
                 margin: "3rem 0",
                 backgroundColor: "#AAA",
                 padding: "2rem 2.75rem",
-                minWidth: '40%'
+                minWidth: "40%",
               }}
             >
               <label htmlFor="playlist_day" style={{ marginTop: "3rem" }}>
-                <h5 className="text-primary"> Pulse Playlist of The Day</h5>
+                <h5 className="text-light"> Pulse Playlist of The Day</h5>
               </label>
               <button
                 name="playlist_daily"
@@ -117,7 +121,11 @@ function Home(props) {
                 <img
                   src={daily}
                   alt="playlist cover"
-                  style={{ maxWidth: "10rem" }}
+                  style={{
+                    maxWidth: "10rem",
+                    borderRadius: ".8rem",
+                    boxShadow: "0 0 1rem #222",
+                  }}
                 />{" "}
               </a>
             </div>
@@ -165,26 +173,34 @@ function Home(props) {
                   className="d-flex justify-content-center flex-column"
                   style={{ backgroundColor: "#333" }}
                 >
-                  <img
-                    style={{
-                      maxWidth: "10vw",
-                      alignSelf: "center",
-                      marginTop: "1.5rem",
-                    }}
-                    src={data[idx].artist.picture_small}
-                    alt={data[idx].artist.name}
-                  />
-                  <h2 style={{ margin: "1rem 0" }}>{data[idx].artist.name}</h2>
+                  <a href={data[idx].artist.link}>
+                    <img
+                      style={{
+                        maxWidth: "10vw",
+                        alignSelf: "center",
+                        marginTop: "1.5rem",
+                      }}
+                      src={data[idx].artist.picture_small}
+                      alt={data[idx].artist.name}
+                    />
+                  </a>
+                  <a href={data[idx].artist.link}>
+                    <h2 style={{ margin: "1rem 0" }}>
+                      {data[idx].artist.name}
+                    </h2>
+                  </a>
                 </div>
-                <img
-                  src={data[idx].album.cover_big}
-                  alt={data[idx].album.title}
-                  style={{
-                    margin: ".5rem .5rem",
-                    maxWidth: "70vw",
-                    boxShadow: "0 0 .5rem black",
-                  }}
-                />
+                <a href={data[idx].artist.link}>
+                  <img
+                    src={data[idx].album.cover_big}
+                    alt={data[idx].album.title}
+                    style={{
+                      margin: ".5rem .5rem",
+                      maxWidth: "70vw",
+                      boxShadow: "0 0 .5rem black",
+                    }}
+                  />
+                </a>
                 <h4
                   style={{
                     margin: "1.5rem auto",
@@ -275,7 +291,7 @@ function Spotlight(props) {
             <img
               src={data.picture_big}
               alt={data.name}
-              style={{ boxShadow: "0 0 1.5rem black", maxWidth: "150%" }}
+              style={{ boxShadow: "0 0 1.5rem black", maxWidth: "70vw" }}
             ></img>
           </a>{" "}
           <div
