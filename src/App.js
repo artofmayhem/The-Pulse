@@ -212,7 +212,7 @@ function Spotlight(props) {
           marginTop: "5rem",
         }}
       >
-        Welcome to Artist Spotlight
+        Welcome to The Artist Spotlight
       </h1>{" "}
       <p>
         This is where we bring to you an artist of the week that needs to make
@@ -229,7 +229,7 @@ function Spotlight(props) {
         }}
       >
         <div
-          className="d-flex flex-column justify-content-center container"
+          className="d-flex flex-column justify-content-center"
           style={{
             maxWidth: "70vh",
             margin: "3rem auto",
@@ -244,7 +244,7 @@ function Spotlight(props) {
             <img
               src={data.picture_big}
               alt={data.name}
-              style={{ boxShadow: "0 0 1.5rem black" }}
+              style={{ boxShadow: "0 0 1.5rem black", maxWidth: '150%' }}
             ></img>
           </a>{" "}
           <div className="d-flex justify-content-center" style={{margin: '1rem 0'}}>
@@ -255,7 +255,7 @@ function Spotlight(props) {
           </div>
         </div>
         <div>
-          <p style={{ textAlign: "justify", padding: "3rem 3rem" }}>
+          <p style={{ textAlign: "justify", padding: "3rem 3rem", fontSize: '12px' }}>
             Kathy Yaeji Lee was born August 6, 1993 in Flushing, Queens as a
             single child in a Korean family. Growing up, Yaeji moved from New
             York to Atlanta when she was 5, and then to South Korea in the third
