@@ -11,6 +11,10 @@ const initialState = [];
 const initialSearchValue = "kaytranada";
 const initialPlayList = "https://deezer.page.link/dp8EELoMmV5ZdLvA9";
 
+
+
+
+
 function Home(props) {
   const [data, setData] = useState(initialState);
   const [searchValue, setSearchValue] = useState(initialSearchValue);
@@ -170,6 +174,10 @@ function Home(props) {
   );
 }
 
+
+
+
+
 function Spotlight(props) {
   const initialSpotlightValue = "yaeji";
 
@@ -319,6 +327,10 @@ function Spotlight(props) {
   );
 }
 
+
+
+
+
 export default function App() {
   return (
     <div className=" parallax-bg jumbotron" style={{ minHeight: "100vh" }}>
@@ -351,7 +363,7 @@ export default function App() {
         </div>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/Spotlight" component={Spotlight} />
+          <Route exact path="/Spotlight" component={Spotlight} />
         </Switch>
       </BrowserRouter>
       {/*Why would we want code outside of browser router */}
