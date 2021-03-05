@@ -12,7 +12,6 @@ const initialState = [];
 const initialSearchValue = "kaytranada";
 const initialPlayList = "https://deezer.page.link/dp8EELoMmV5ZdLvA9";
 
-
 function Home(props) {
   const [data, setData] = useState(initialState);
   const [searchValue, setSearchValue] = useState(initialSearchValue);
@@ -191,26 +190,36 @@ function Home(props) {
                     </h2>
                   </a>
                 </div>
-                <a href={data[idx].artist.link}>
+                <a
+                  href={data[idx].link}
+                  style={{ margin: ".5rem .5rem", alignSelf: "center" }}
+                >
                   <img
                     src={data[idx].album.cover_big}
                     alt={data[idx].album.title}
                     style={{
-                      margin: ".5rem .5rem",
-                      maxWidth: "60vw",
+                      maxWidth: "70vw",
                       boxShadow: "0 0 .5rem black",
-                      alignSelf: 'center'
                     }}
                   />
                 </a>
-                <h4
-                  style={{
-                    margin: "1.5rem auto",
-                    textShadow: ".5rem .5rem .5rem black",
-                  }}
+                <a
+                  href={data[idx].link}
+                  style={{ margin: ".5rem .5rem", alignSelf: "center" }}
                 >
-                  {data[idx].title_short}
-                </h4>
+                  <h4
+                    style={{
+                      margin: "1.5rem auto",
+                      textShadow: ".5rem .5rem .5rem black",
+                    }}
+                  >
+                    {data[idx].title_short}
+                  </h4>
+                </a>
+                <audio controls preload="none" style={{width: '20rem', alignSelf: 'center'}}>
+                <source src={data[idx].preview} type="audio/mpeg" />
+              </audio><br />
+              <a href={data[idx].link} title="mp3 player" style={{textAlign: 'right', display: "block"}}>{data[idx].title_short}</a> 
               </div>
             );
           })}
