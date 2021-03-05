@@ -12,6 +12,7 @@ const initialState = [];
 const initialSearchValue = "kaytranada";
 const initialPlayList = "https://deezer.page.link/dp8EELoMmV5ZdLvA9";
 
+
 function Home(props) {
   const [data, setData] = useState(initialState);
   const [searchValue, setSearchValue] = useState(initialSearchValue);
@@ -196,7 +197,7 @@ function Home(props) {
                     alt={data[idx].album.title}
                     style={{
                       margin: ".5rem .5rem",
-                      maxWidth: "70vw",
+                      maxWidth: "60vw",
                       boxShadow: "0 0 .5rem black",
                     }}
                   />
