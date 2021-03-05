@@ -28,6 +28,10 @@ h1 {
   color: white
 }
 
+#root {
+  background-color: black;
+}
+
 
 .header {
   margin-top: 5rem;
