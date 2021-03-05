@@ -199,6 +199,7 @@ function Home(props) {
                       margin: ".5rem .5rem",
                       maxWidth: "60vw",
                       boxShadow: "0 0 .5rem black",
+                      alignSelf: 'center'
                     }}
                   />
                 </a>
