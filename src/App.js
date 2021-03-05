@@ -255,7 +255,7 @@ function Spotlight(props) {
           </div>
         </div>
         <div>
-          <p style={{ textAlign: "justify", padding: "3rem 3rem", fontSize: '12px' }}>
+          <p style={{ textAlign: "justify", padding: "3rem 3rem", fontSize: '1.2rem' }}>
             Kathy Yaeji Lee was born August 6, 1993 in Flushing, Queens as a
             single child in a Korean family. Growing up, Yaeji moved from New
             York to Atlanta when she was 5, and then to South Korea in the third
