@@ -294,7 +294,7 @@ function Spotlight(props) {
           }}
         >
           {" "}
-          <a href={data.link}>
+          <a href={data.link} style={{textDecoration: 'none'}}>
             <h1 style={{ margin: "1rem 0" }}>{data.name}</h1>
           </a>
           <a href={data.link}>
