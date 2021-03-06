@@ -86,7 +86,7 @@ function Home(props) {
                     marginTop: '2rem'
                   }}
                 />{" "}
-                <h5 className="text-light" style={{ marginTop: "2rem 0" }}>
+                <h5 className="text-light" style={{ margin: "2rem 0" }}>
                   {" "}
                   Check out Our Pulse Playlist of The Week
                 </h5>
