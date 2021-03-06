@@ -5,8 +5,9 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 import Deezer from "./assests/deezer.png";
-import daily from "./assests/daily.png";
-import playlistCover from "./assests/playlistCover.png";
+import playlistDay from "./assests/playlistDay.jpeg";
+import playlistWeek from "./assests/playlistWeek.jpeg";
+import spotlight from "./assests/spotlight.jpg";
 
 const initialState = [];
 const initialSearchValue = "";
@@ -15,8 +16,8 @@ const initialPlayList = "https://deezer.page.link/dp8EELoMmV5ZdLvA9";
 function Home(props) {
   const [data, setData] = useState(initialState);
   const [searchValue, setSearchValue] = useState(initialSearchValue);
-  const pulsePlayList = initialPlayList;
-  const pulseDailyPlayList = "https://deezer.page.link/ZcdwvqUmGDgN7yDQA";
+  const pulseWeeklyPlayList = initialPlayList;
+  const pulseDailyPlayList = "https://www.deezer.com/us/playlist/8805992502";
 
   const options = {
     method: "GET",
@@ -46,7 +47,7 @@ function Home(props) {
   };
 
   const handleChange = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setSearchValue(e.target.value);
   };
 
@@ -69,33 +70,25 @@ function Home(props) {
                 alignSelf: "center",
                 margin: "3rem 0",
                 backgroundColor: "#AAA",
-                padding: "2rem 2.75rem",
                 minWidth: "40%",
               }}
             >
-              <label htmlFor="playlist" style={{ marginTop: "3rem" }}>
-                <h5 className="text-light">
+              <a href={pulseWeeklyPlayList} style={{ textDecoration: "none" }}>
+                <img
+                  name="playlist"
+                  src={playlistWeek}
+                  alt="playlist cover"
+                  style={{
+                    maxWidth: "18rem",
+                    boxShadow: "0 0 1rem #222",
+                    alignSelf: 'center',
+                    margin: '2rem 0'
+                  }}
+                />{" "}
+                <h5 className="text-light" style={{ marginTop: "2rem" }}>
                   {" "}
                   Check out Our Pulse Playlist of The Week
                 </h5>
-              </label>
-              <button
-                name="playlist"
-                className="btn btn-dark"
-                style={{ alignSelf: "center", marginBottom: "2rem" }}
-              >
-                <a href={pulsePlayList}>Take Me There</a>
-              </button>
-              <a href={pulsePlayList}>
-                <img
-                  src={playlistCover}
-                  alt="playlist cover"
-                  style={{
-                    maxWidth: "10rem",
-                    borderRadius: "0.8rem",
-                    boxShadow: "0 0 1rem #222",
-                  }}
-                />{" "}
               </a>
             </div>
             <div
@@ -108,26 +101,24 @@ function Home(props) {
                 minWidth: "40%",
               }}
             >
-              <label htmlFor="playlist_day" style={{ marginTop: "3rem" }}>
-                <h5 className="text-light"> Pulse Playlist of The Day</h5>
-              </label>
-              <button
-                name="playlist_daily"
-                className="btn btn-dark"
-                style={{ alignSelf: "center", marginBottom: "2rem" }}
-              >
-                <a href={pulseDailyPlayList}>Take Me There</a>
-              </button>
-              <a href={pulsePlayList}>
+              <a href={pulseDailyPlayList} style={{ textDecoration: "none" }}>
                 <img
-                  src={daily}
+                  src={playlistDay}
                   alt="playlist cover"
                   style={{
-                    maxWidth: "10rem",
-                    borderRadius: ".8rem",
+                    maxHeight: "8rem",
                     boxShadow: "0 0 1rem #222",
+                    textDecoration: "none",
+                    alignSelf: 'center'
                   }}
                 />{" "}
+                <h5
+                  className="text-light"
+                  style={{ marginTop: "2rem", textDecoration: "none" }}
+                >
+                  {" "}
+                  Pulse Playlist of The Day 3.6.21
+                </h5>
               </a>
             </div>
           </div>{" "}
@@ -217,10 +208,14 @@ function Home(props) {
                     {data[idx].title_short}
                   </h4>
                 </a>
-                <audio controls preload="none" style={{width: '20rem', alignSelf: 'center'}}>
-                <source src={data && data[idx].preview} type="audio/mpeg" />
-              </audio><br />
-             
+                <audio
+                  controls
+                  preload="none"
+                  style={{ width: "20rem", alignSelf: "center" }}
+                >
+                  <source src={data && data[idx].preview} type="audio/mpeg" />
+                </audio>
+                <br />
               </div>
             );
           })}
@@ -261,7 +256,7 @@ function Spotlight(props) {
   return (
     <div
       className="d-flex justify-content-center flex-column"
-      style={{ textAlign: "center" }}
+      style={{ textAlign: "center", minWidth: '80vw', alignSelf: 'center', marginTop: '3rem' }}
     >
       <h1
         style={{
@@ -282,7 +277,7 @@ function Spotlight(props) {
         style={{
           opacity: "0.9",
           backgroundColor: "#222",
-          maxWidth: "50vw",
+          maxWidth: "85vw",
           alignSelf: "center",
           marginTop: "5rem",
         }}
@@ -290,9 +285,10 @@ function Spotlight(props) {
         <div
           className="d-flex flex-column justify-content-center"
           style={{
-            maxWidth: "70vh",
+            maxWidth: "75vh",
             margin: "3rem auto",
             backgroundColor: "white",
+            padding: '0 1rem'
           }}
         >
           {" "}
@@ -318,11 +314,11 @@ function Spotlight(props) {
             </h6>
           </div>
         </div>
-        <div>
+        <div style={{padding: '1rem', maxWidth: '75vw', alignSelf: 'center'}}>
           <p
             style={{
               textAlign: "justify",
-              padding: "3rem 3rem",
+              padding: "3rem 1rem",
               fontSize: "1.2rem",
             }}
           >
@@ -378,11 +374,20 @@ function Spotlight(props) {
           </p>
         </div>
         <a
-          className="btn btn-dark"
           href={data.link}
           style={{ textDecoration: "none", marginBottom: "3rem" }}
         >
-          <h5>Listen to {data.name} on Deezer</h5>
+          <img
+            src={spotlight}
+            alt="artist spotlight playlist"
+            style={{
+              maxWidth: "35vw",
+              boxShadow: "0 0 1rem #222",
+              textDecoration: "none",
+              alignSelf: 'center'
+            }}
+          />
+          <h6 style={{marginTop: '2rem', padding: '0 2rem'}}>Listen to the Artist Spotlight Playlist on Deezer</h6>
         </a>
       </div>
     </div>
@@ -406,14 +411,14 @@ export default function App() {
             <Link
               to="/"
               className=" btn btn-outline-dark"
-              style={{ color: "#CCC" }}
+              style={{ color: "#CCC", margin: '1.5rem 2rem' }}
             >
               Artists
             </Link>
             <Link
               to="spotlight"
               className=" btn btn-outline-dark"
-              style={{ color: "#CCC" }}
+              style={{ color: "#CCC", margin: '1.5rem 2rem' }}
             >
               Spotlight
             </Link>
@@ -425,8 +430,8 @@ export default function App() {
         </Switch>
       </BrowserRouter>
       {/*Why would we want code outside of browser router */}
-      <footer style={{ color: "#AAA", marginTop: "5rem" }}>
-        copyright 2020 Tony Miller
+      <footer style={{ color: "#AAA", marginTop: "5rem", textAlign: 'center' }}>
+        <h6>copyright 2020 Tony Miller</h6>
       </footer>
       {/*something that doesn't need to be dependent on router functions?  */}
     </div>

@@ -7,9 +7,7 @@ body {
 
 a {
   color: white;
-  text-decoration: none;
-  margin: 1rem auto;
-  padding: 0rem 2rem;
+  text-decoration: none
 }
 
 .nav {
