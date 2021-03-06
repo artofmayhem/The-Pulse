@@ -83,10 +83,10 @@ function Home(props) {
                     maxWidth: "18rem",
                     boxShadow: "0 0 1rem #222",
                     alignSelf: 'center',
-                    margin: '2rem 0'
+                    marginTop: '2rem'
                   }}
                 />{" "}
-                <h5 className="text-light" style={{ marginTop: "0.2rem" }}>
+                <h5 className="text-light" style={{ marginTop: "2rem 0" }}>
                   {" "}
                   Check out Our Pulse Playlist of The Week
                 </h5>
@@ -115,7 +115,7 @@ function Home(props) {
                 />{" "}
                 <h5
                   className="text-light"
-                  style={{ marginBottom: "2rem", textDecoration: "none" }}
+                  style={{ margin: "2rem 0", textDecoration: "none" }}
                 >
                   {" "}
                   Pulse Playlist of The Day 3.6.21
