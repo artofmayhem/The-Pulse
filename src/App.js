@@ -115,7 +115,7 @@ function Home(props) {
                 />{" "}
                 <h5
                   className="text-light"
-                  style={{ marginTop: "2rem", textDecoration: "none" }}
+                  style={{ marginBottom: "2rem", textDecoration: "none" }}
                 >
                   {" "}
                   Pulse Playlist of The Day 3.6.21
