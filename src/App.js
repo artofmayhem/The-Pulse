@@ -18,6 +18,7 @@ function Home(props) {
   const [searchValue, setSearchValue] = useState(initialSearchValue);
   const pulseWeeklyPlayList = initialPlayList;
   const pulseDailyPlayList = "https://www.deezer.com/us/playlist/8805992502";
+  
 
   const options = {
     method: "GET",
@@ -226,6 +227,7 @@ function Home(props) {
 
 function Spotlight(props) {
   const initialSpotlightValue = "yaeji";
+  const pulseSpotLightPlayList = 'https://www.deezer.com/us/playlist/8806991382';
 
   const [data, setData] = useState(initialState);
   const [spotlightValue, setSpotlightValue] = useState(initialSpotlightValue);
@@ -374,7 +376,7 @@ function Spotlight(props) {
           </p>
         </div>
         <a
-          href={data.link}
+          href={pulseSpotLightPlayList}
           style={{ textDecoration: "none", marginBottom: "3rem" }}
         >
           <img
