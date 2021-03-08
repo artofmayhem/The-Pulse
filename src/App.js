@@ -11,13 +11,13 @@ import spotlight from "./assests/spotlight.jpg";
 
 const initialState = [];
 const initialSearchValue = "";
-const initialPlayList = "https://www.deezer.com/us/playlist/8801039002";
+const initialPlayList = "https://deezer.page.link/2qKyiqSy2tV9cD5E7";
 
 function Home(props) {
   const [data, setData] = useState(initialState);
   const [searchValue, setSearchValue] = useState(initialSearchValue);
   const pulseWeeklyPlayList = initialPlayList;
-  const pulseDailyPlayList = "https://www.deezer.com/us/playlist/8807120982";
+  const pulseDailyPlayList = "https://deezer.page.link/VRxWm8SovHJ2sHU49";
   
 
   const options = {
@@ -227,7 +227,7 @@ function Home(props) {
 
 function Spotlight(props) {
   const initialSpotlightValue = "yaeji";
-  const pulseSpotLightPlayList = 'https://www.deezer.com/us/playlist/8806991382';
+  const pulseSpotLightPlayList = 'https://deezer.page.link/6X7yASvxDUVgFmws5';
 
   const [data, setData] = useState(initialState);
   const [spotlightValue, setSpotlightValue] = useState(initialSpotlightValue);
