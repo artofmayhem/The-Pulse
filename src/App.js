@@ -11,13 +11,13 @@ import spotlight from "./assests/spotlight.jpg";
 
 const initialState = [];
 const initialSearchValue = "";
-const initialPlayList = "https://deezer.page.link/dp8EELoMmV5ZdLvA9";
+const initialPlayList = "https://www.deezer.com/us/playlist/8801039002";
 
 function Home(props) {
   const [data, setData] = useState(initialState);
   const [searchValue, setSearchValue] = useState(initialSearchValue);
   const pulseWeeklyPlayList = initialPlayList;
-  const pulseDailyPlayList = "https://www.deezer.com/us/playlist/8805992502";
+  const pulseDailyPlayList = "https://www.deezer.com/us/playlist/8807120982";
   
 
   const options = {
