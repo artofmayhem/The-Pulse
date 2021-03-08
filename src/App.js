@@ -118,7 +118,7 @@ function Home(props) {
                   style={{ margin: "2rem 0", textDecoration: "none" }}
                 >
                   {" "}
-                  Pulse Playlist of The Day 3.6.21
+                  Pulse Playlist of The Day 3.7.21
                 </h5>
               </a>
             </div>
