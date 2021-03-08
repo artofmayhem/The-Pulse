@@ -209,13 +209,13 @@ function Home(props) {
                     {data[idx].title_short}
                   </h4>
                 </a>
-                <audio
+                {/* <audio
                   controls
                   preload="none"
                   style={{ width: "20rem", alignSelf: "center" }}
                 >
                   <source src={data && data[idx].preview} type="audio/mpeg" />
-                </audio>
+                </audio> */}
                 <br />
               </div>
             );
