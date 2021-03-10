@@ -17,7 +17,7 @@ function Home(props) {
   const [data, setData] = useState(initialState);
   const [searchValue, setSearchValue] = useState(initialSearchValue);
   const pulseWeeklyPlayList = initialPlayList;
-  const pulseDailyPlayList = "https://deezer.page.link/VRxWm8SovHJ2sHU49";
+  const pulseDailyPlayList = "https://www.deezer.com/us/playlist/8820898002";
   
 
   const options = {
@@ -118,7 +118,7 @@ function Home(props) {
                   style={{ margin: "2rem 0", textDecoration: "none" }}
                 >
                   {" "}
-                  Pulse Playlist of The Day 3.6.21
+                  Pulse Playlist of The Day
                 </h5>
               </a>
             </div>
@@ -177,7 +177,7 @@ function Home(props) {
                       alt={data[idx].artist.name}
                     />
                   </a>
-                  <a href={data[idx].artist.link}>
+                  <a href={data[idx].artist.link } style={{textDecoration: 'none'}}>
                     <h2 style={{ margin: "1rem 0" }}>
                       {data[idx].artist.name}
                     </h2>
@@ -196,6 +196,7 @@ function Home(props) {
                     }}
                   />
                 </a>
+
                 <a
                   href={data[idx].link}
                   style={{ margin: ".5rem .5rem", alignSelf: "center", textDecoration: 'none' }}
