@@ -118,7 +118,9 @@ function Home(props) {
                   style={{ margin: "2rem 0", textDecoration: "none" }}
                 >
                   {" "}
+
                   Pulse Playlist of The Day
+
                 </h5>
               </a>
             </div>
