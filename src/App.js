@@ -18,7 +18,6 @@ function Home(props) {
   const [searchValue, setSearchValue] = useState(initialSearchValue);
   const pulseWeeklyPlayList = initialPlayList;
   const pulseDailyPlayList = "https://www.deezer.com/us/playlist/8820898002";
-  
 
   const options = {
     method: "GET",
@@ -82,8 +81,8 @@ function Home(props) {
                   style={{
                     maxWidth: "18rem",
                     boxShadow: "0 0 1rem #222",
-                    alignSelf: 'center',
-                    marginTop: '2rem'
+                    alignSelf: "center",
+                    marginTop: "2rem",
                   }}
                 />{" "}
                 <h5 className="text-light" style={{ margin: "2rem 0" }}>
@@ -110,7 +109,7 @@ function Home(props) {
                     maxHeight: "8rem",
                     boxShadow: "0 0 1rem #222",
                     textDecoration: "none",
-                    alignSelf: 'center'
+                    alignSelf: "center",
                   }}
                 />{" "}
                 <h5
@@ -118,9 +117,7 @@ function Home(props) {
                   style={{ margin: "2rem 0", textDecoration: "none" }}
                 >
                   {" "}
-
                   Pulse Playlist of The Day
-
                 </h5>
               </a>
             </div>
@@ -179,7 +176,10 @@ function Home(props) {
                       alt={data[idx].artist.name}
                     />
                   </a>
-                  <a href={data[idx].artist.link } style={{textDecoration: 'none'}}>
+                  <a
+                    href={data[idx].artist.link}
+                    style={{ textDecoration: "none" }}
+                  >
                     <h2 style={{ margin: "1rem 0" }}>
                       {data[idx].artist.name}
                     </h2>
@@ -201,7 +201,11 @@ function Home(props) {
 
                 <a
                   href={data[idx].link}
-                  style={{ margin: ".5rem .5rem", alignSelf: "center", textDecoration: 'none' }}
+                  style={{
+                    margin: ".5rem .5rem",
+                    alignSelf: "center",
+                    textDecoration: "none",
+                  }}
                 >
                   <h4
                     style={{
@@ -229,15 +233,15 @@ function Home(props) {
 }
 
 function Spotlight(props) {
-  const initialSpotlightValue = "yaeji";
-  const pulseSpotLightPlayList = 'https://deezer.page.link/6X7yASvxDUVgFmws5';
+  const initialSpotlightValue = "zo";
+  const pulseSpotLightPlayList = "https://www.deezer.com/us/playlist/8821019162";
 
   const [data, setData] = useState(initialState);
   const [spotlightValue, setSpotlightValue] = useState(initialSpotlightValue);
 
   const options = {
     method: "GET",
-    url: "https://deezerdevs-deezer.p.rapidapi.com/artist/yaeji",
+    url: `https://deezerdevs-deezer.p.rapidapi.com/artist/${initialSpotlightValue}`,
     params: { id: spotlightValue },
     headers: {
       "x-rapidapi-key": "cc687eba84mshcc7485fcf110baap193a15jsnfb1be463a74d",
@@ -261,7 +265,12 @@ function Spotlight(props) {
   return (
     <div
       className="d-flex justify-content-center flex-column"
-      style={{ textAlign: "center", minWidth: '80vw', alignSelf: 'center', marginTop: '3rem' }}
+      style={{
+        textAlign: "center",
+        minWidth: "80vw",
+        alignSelf: "center",
+        marginTop: "3rem",
+      }}
     >
       <h1
         style={{
@@ -293,12 +302,12 @@ function Spotlight(props) {
             maxWidth: "75vh",
             margin: "3rem auto",
             backgroundColor: "white",
-            padding: '0 1rem'
+            padding: "0 1rem",
           }}
         >
           {" "}
-          <a href={data.link} style={{textDecoration: 'none'}}>
-            <h1 style={{ margin: "1rem 0" }}>{data.name}</h1>
+          <a href={data.link} style={{ textDecoration: "none" }}>
+            <h1 style={{ margin: "1rem 0" }}>{data.name}!</h1>
           </a>
           <a href={data.link}>
             <img
@@ -319,7 +328,7 @@ function Spotlight(props) {
             </h6>
           </div>
         </div>
-        <div style={{padding: '1rem', maxWidth: '75vw', alignSelf: 'center'}}>
+        <div style={{ padding: "1rem", maxWidth: "75vw", alignSelf: "center" }}>
           <p
             style={{
               textAlign: "justify",
@@ -327,55 +336,30 @@ function Spotlight(props) {
               fontSize: "1.2rem",
             }}
           >
-            Kathy Yaeji Lee was born August 6, 1993 in Flushing, Queens as a
-            single child in a Korean family. Growing up, Yaeji moved from New
-            York to Atlanta when she was 5, and then to South Korea in the third
-            grade. While living in South Korea, Yaeji switched between different
-            international schools on a yearly basis, causing her to find friends
-            on the Internet, where she would first discover music. Yaeji also
-            briefly attended school in Japan before moving back to Korea.
-            <br></br>
-            <br></br>
-            Yaeji eventually moved back to the United States to study conceptual
-            art, East Asian studies and graphic design at Carnegie Mellon
-            University in Pittsburgh. Yaeji embraced DJing as a hobby while
-            attending Carnegie Mellon, after learning how to use Traktor and
-            beginning to DJ at house parties. She DJed for two years before
-            learning Ableton, making her own music and debuting on Carnegie
-            Mellon's college radio station. Yaeji graduated from Carnegie Mellon
-            in 2015.
-            <br></br>
-            <br></br>
-            After graduation, Yaeji moved back to New York City to get involved
-            in the music scene and DJ.Her first single, "New York '93",
-            referring to her year of birth, was issued on the New York City
-            label Godmode on February 29, 2016, followed by a cover of "Guap" by
-            Australian DJ Mall Grab that May. She had previously uploaded songs
-            to SoundCloud, although they were removed; this included
-            "Areyouami", which was released when she was at college.
-            <br></br>
-            <br />
-            Her debut eponymous EP, including both prior singles, was released
-            by Godmode on March 31, 2017. She began to gain attention following
-            her first Boiler Room session in May 2017, which involved a remix of
-            Drake's single "Passionfruit". The song was later released
-            officially on Godmode's Soundcloud page. The first of several
-            stand-alone singles, "Therapy" was issued in July 2017, followed by
-            a two-track digital single, Remixes, Vol. 1, on August 1 and the
-            "Last Breath" single on August 28.
+            Multi-Instrumentalist/Producer Zo! is Detroit-area born and raised,
+            Silver Spring, MD based… Lorenzo Ferguson.
             <br />
             <br />
-            The music video for the single "Drink I'm Sippin On" was released on
-            88rising's YouTube channel in October 2017, quickly gaining over a
-            million views in two weeks. On November 3, 2017, Yaeji released her
-            second EP, EP2, to positive reviews and moderate commercial success.
-            The video for "Raingurl" was released on November 16. She was named
-            to the BBC's Sound of 2018 longlist in November 2017.
-            <br />
-            <br />
-            Yaeji performed at the 2018 Coachella Festival. She did a virtual
-            Boiler Room set to raise funds for The Bail Project on August 28,
-            2020.
+            Influenced by a wide range of music genres introduced to him at an
+            early age, Zo! utilizes multiple layers of thick instrumentation to
+            shape his compositions, as demonstrated on his solo albums. While
+            touring his own material regularly, Zo! can also be seen on stage as
+            the keyboardist and Musical Director for GRAMMY-nominated duo, The
+            Foreign Exchange. In 2014, he completed music work for the Adult
+            Swim animated series, Black Dynamite. Zo! co-produced The Foreign
+            Exchange’s 2015 release, Tales From The Land Of Milk and Honey. His
+            SkyBreak album was released in 2016 along with its accompanying
+            behind-the-scenes, two-time award-winning documentary, Making
+            SkyBreak (2017). Zo! then began expanding his musical repertoire to
+            include film scoring, completing full scores for two documentaries:
+            Black, White & Blue (2018) and the Northwestern University
+            commissioned, The Takeover (2018). Along with production partner,
+            Phonte (of The Foreign Exchange) Zo! helped to compose music for the
+            IFC sketch-comedy series, Sherman’s Showcase (2019). In August of
+            2019, Zo! released FourFront his fourth compilation-style album on
+            the +FE Music imprint. He continues to emphasize the usage of live
+            instrumentation and raw emotion as the blueprint for his music while
+            continuing to expand his sound with each album release.
           </p>
         </div>
         <a
@@ -389,10 +373,12 @@ function Spotlight(props) {
               maxWidth: "35vw",
               boxShadow: "0 0 1rem #222",
               textDecoration: "none",
-              alignSelf: 'center'
+              alignSelf: "center",
             }}
           />
-          <h6 style={{marginTop: '2rem', padding: '0 2rem'}}>Listen to the Artist Spotlight Playlist on Deezer</h6>
+          <h6 style={{ marginTop: "2rem", padding: "0 2rem" }}>
+            Listen to the Artist Spotlight Playlist on Deezer
+          </h6>
         </a>
       </div>
     </div>
@@ -416,14 +402,14 @@ export default function App() {
             <Link
               to="/"
               className=" btn btn-outline-dark"
-              style={{ color: "#CCC", margin: '1.5rem 2rem' }}
+              style={{ color: "#CCC", margin: "1.5rem 2rem" }}
             >
               Artists
             </Link>
             <Link
               to="spotlight"
               className=" btn btn-outline-dark"
-              style={{ color: "#CCC", margin: '1.5rem 2rem' }}
+              style={{ color: "#CCC", margin: "1.5rem 2rem" }}
             >
               Spotlight
             </Link>
@@ -435,7 +421,7 @@ export default function App() {
         </Switch>
       </BrowserRouter>
       {/*Why would we want code outside of browser router */}
-      <footer style={{ color: "#AAA", marginTop: "5rem", textAlign: 'center' }}>
+      <footer style={{ color: "#AAA", marginTop: "5rem", textAlign: "center" }}>
         <h6>copyright 2020 Tony Miller</h6>
       </footer>
       {/*something that doesn't need to be dependent on router functions?  */}
