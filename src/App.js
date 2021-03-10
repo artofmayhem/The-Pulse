@@ -198,7 +198,7 @@ function Home(props) {
                 </a>
                 <a
                   href={data[idx].link}
-                  style={{ margin: ".5rem .5rem", alignSelf: "center" }}
+                  style={{ margin: ".5rem .5rem", alignSelf: "center", textDecoration: 'none' }}
                 >
                   <h4
                     style={{
