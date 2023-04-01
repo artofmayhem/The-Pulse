@@ -249,6 +249,7 @@ function Spotlight(props) {
     },
   };
 
+  
   useEffect(() => {
     axios
       .request(options)
